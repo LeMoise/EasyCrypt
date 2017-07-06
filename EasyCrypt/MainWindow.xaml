@@ -1,0 +1,17 @@
+﻿<Window x:Class="EasyCrypt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EasyCrypt"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="400">
+    <Grid>
+        <Button x:Name="openBTTN" Content="Open" HorizontalAlignment="Left" Margin="300,30,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="openBTTN_Click"/>
+        <Button x:Name="saveBTTN" Content="Save To" HorizontalAlignment="Left" Margin="300,75,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="saveBTTN_Click"/>
+        <Button x:Name="encryptBTTN" Content="Encrypt" HorizontalAlignment="Left" Margin="162,125,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="encryptBTTN_Click"/>
+        <TextBox x:Name="originalTB" HorizontalAlignment="Left" Height="23" Margin="25,30,0,0" TextWrapping="NoWrap" Text="Original File" VerticalAlignment="Top" Width="250"/>
+        <TextBox x:Name="newFileTB" HorizontalAlignment="Left" Height="23" Margin="25,75,0,0" TextWrapping="NoWrap" Text="Output File" VerticalAlignment="Top" Width="250"/>
+
+    </Grid>
+</Window>
