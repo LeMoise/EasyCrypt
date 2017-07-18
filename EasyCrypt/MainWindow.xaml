@@ -9,9 +9,11 @@
     <Grid>
         <Button x:Name="openBTTN" Content="Open" HorizontalAlignment="Left" Margin="300,30,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="openBTTN_Click"/>
         <Button x:Name="saveBTTN" Content="Save To" HorizontalAlignment="Left" Margin="300,75,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="saveBTTN_Click"/>
-        <Button x:Name="encryptBTTN" Content="Encrypt" HorizontalAlignment="Left" Margin="162,125,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="encryptBTTN_Click"/>
+        <Button x:Name="encryptBTTN" Content="Encrypt" HorizontalAlignment="Left" Margin="225,125,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="encryptBTTN_Click"/>
+        <Button x:Name="decryptBTTN" Content="Decrypt" HorizontalAlignment="Left" Margin="100,125,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="decryptBTTN_Click"/>
         <TextBox x:Name="originalTB" HorizontalAlignment="Left" Height="23" Margin="25,30,0,0" TextWrapping="NoWrap" Text="Original File" VerticalAlignment="Top" Width="250"/>
         <TextBox x:Name="newFileTB" HorizontalAlignment="Left" Height="23" Margin="25,75,0,0" TextWrapping="NoWrap" Text="Output File" VerticalAlignment="Top" Width="250"/>
+        
 
     </Grid>
 </Window>

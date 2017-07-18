@@ -45,7 +45,10 @@ namespace EasyCrypt {
         private void encryptBTTN_Click(object sender, RoutedEventArgs e) {
             EncryptFile(openFileName, saveFileName);
         }//End EncryptBTTN Click
-
+        private void decryptBTTN_Click(object sender, RoutedEventArgs e)
+        {
+            DecryptFile(openFileName, saveFileName);
+        }
         private void EncryptFile(string inputFile, string outputFile) {
 
             try {
@@ -103,5 +106,7 @@ namespace EasyCrypt {
                 fsCrypt.Close();
             }
         }//End Decrpyt
+
+
     }//End Partial Class MainWindow
 }//End NameSpace
