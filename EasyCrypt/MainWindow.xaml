@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EasyCrypt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="400">
+        Title="EasyCrypt" Height="310" Width="450">
+
     <Grid>
-        <Button x:Name="openBTTN" Content="Open" HorizontalAlignment="Left" Margin="300,30,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="openBTTN_Click"/>
-        <Button x:Name="saveBTTN" Content="Save To" HorizontalAlignment="Left" Margin="300,75,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="saveBTTN_Click"/>
-        <Button x:Name="encryptBTTN" Content="Encrypt" HorizontalAlignment="Left" Margin="225,125,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="encryptBTTN_Click"/>
-        <Button x:Name="decryptBTTN" Content="Decrypt" HorizontalAlignment="Left" Margin="100,125,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="decryptBTTN_Click"/>
-        <TextBox x:Name="originalTB" HorizontalAlignment="Left" Height="23" Margin="25,30,0,0" TextWrapping="NoWrap" Text="Original File" VerticalAlignment="Top" Width="250"/>
-        <TextBox x:Name="newFileTB" HorizontalAlignment="Left" Height="23" Margin="25,75,0,0" TextWrapping="NoWrap" Text="Output File" VerticalAlignment="Top" Width="250"/>
-        
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="114" Margin="25,145,0,0" Stroke="Black" VerticalAlignment="Top" Width="385"/>
+
+        <Button x:Name="openBTTN" Content="Source" HorizontalAlignment="Left" Margin="300,50,0,0" VerticalAlignment="Top" Width="90" Height="24" Click="openBTTN_Click" FontSize="16"/>
+        <Button x:Name="saveBTTN" Content= "Destination" HorizontalAlignment="Left" Margin="300,106,0,0" VerticalAlignment="Top" Width="90" Height="24" Click="saveBTTN_Click" FontSize="16"/>
+        <Button x:Name="encryptBTTN" Content="Encrypt" HorizontalAlignment="Left" Margin="300,181,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="encryptBTTN_Click" FontSize="16"/>
+        <Button x:Name="decryptBTTN" Content="Decrypt" HorizontalAlignment="Left" Margin="300,220,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="decryptBTTN_Click" FontSize="16"/>
+        <TextBox x:Name="originalTB" HorizontalAlignment="Left" Height="24" Margin="30,50,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="250" FontSize="16"/>
+        <TextBox x:Name="newFileTB" HorizontalAlignment="Left" Height="24" Margin="30,106,0,0" TextWrapping="NoWrap"   VerticalAlignment="Top" Width="250" FontSize="16"/>
+        <TextBox x:Name="passwordTB" HorizontalAlignment="Left" Height="24" Margin="30,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="16"/>
+        <Label x:Name="originalLBL" Content="Original File:" HorizontalAlignment="Left" Margin="30,18,0,0" VerticalAlignment="Top" FontSize="16" Height="32"/>
+        <Label x:Name="outputLBL" Content="Output File:" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top" FontSize="16" Height="32"/>
+        <Label x:Name="passwordLBL" Content="Enter Password:" HorizontalAlignment="Left" Margin="30,151,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <Label x:Name="usermssgLBL" Content="" HorizontalAlignment="Left" Margin="30,214,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+
 
     </Grid>
 </Window>

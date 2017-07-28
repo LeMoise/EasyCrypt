@@ -45,68 +45,96 @@ namespace EasyCrypt {
         private void encryptBTTN_Click(object sender, RoutedEventArgs e) {
             EncryptFile(openFileName, saveFileName);
         }//End EncryptBTTN Click
+
         private void decryptBTTN_Click(object sender, RoutedEventArgs e)
         {
             DecryptFile(openFileName, saveFileName);
-        }
+        }//End DecryptBTTN Click
+
         private void EncryptFile(string inputFile, string outputFile) {
 
-            try {
-                string password = @"myKey123"; // Your Key Here
-                UnicodeEncoding UE = new UnicodeEncoding();
-                byte[] key = UE.GetBytes(password);
-
-                string cryptFile = outputFile;
-                FileStream fsCrypt = new FileStream(cryptFile, FileMode.Create);
-
-                RijndaelManaged RMCrypto = new RijndaelManaged();
-
-                CryptoStream cs = new CryptoStream(fsCrypt,
-                    RMCrypto.CreateEncryptor(key, key),
-                    CryptoStreamMode.Write);
-
-                FileStream fsIn = new FileStream(inputFile, FileMode.Open);
-
-                int data;
-                while ((data = fsIn.ReadByte()) != -1)
-                    cs.WriteByte((byte)data);
-
-                fsIn.Close();
-                cs.Close();
-                fsCrypt.Close();
+            if (passwordTB.Text.Length <= 7)
+            {
+                MessageBox.Show("Enter a password with a length of 8 characters or more");
             }
-            catch {
-                MessageBox.Show("Encryption failed!", "Error");
+            else
+            {
+                try
+                {
+                    string password = passwordTB.Text;
+                    UnicodeEncoding UE = new UnicodeEncoding();
+                    byte[] key = UE.GetBytes(password);
+
+                    string cryptFile = outputFile;
+                    FileStream fsCrypt = new FileStream(cryptFile, FileMode.Create);
+
+                    RijndaelManaged RMCrypto = new RijndaelManaged();
+
+                    CryptoStream cs = new CryptoStream(fsCrypt,
+                        RMCrypto.CreateEncryptor(key, key),
+                        CryptoStreamMode.Write);
+
+                    FileStream fsIn = new FileStream(inputFile, FileMode.Open);
+
+                    int data;
+                    while ((data = fsIn.ReadByte()) != -1)
+                        cs.WriteByte((byte)data);
+
+                    fsIn.Close();
+                    cs.Close();
+                    fsCrypt.Close();
+                    usermssgLBL.Foreground = System.Windows.Media.Brushes.Green;
+                    usermssgLBL.Content = "Encryption Successful!";
+                }
+                catch
+                {
+                    usermssgLBL.Foreground = System.Windows.Media.Brushes.Red;
+                    usermssgLBL.Content = "Failed!";
+                }
             }
         }//End Encrypt
 
         private void DecryptFile(string inputFile, string outputFile) {
             {
-                string password = @"myKey123"; // Your Key Here
+                if (passwordTB.Text.Length <= 7)
+                {
+                    MessageBox.Show("Enter a password with a length of 8 characters or more");
+                }
+                else
+                {
+                    try
+                    {
+                        string password = passwordTB.Text; // Your Key Here
+                        UnicodeEncoding UE = new UnicodeEncoding();
+                        byte[] key = UE.GetBytes(password);
 
-                UnicodeEncoding UE = new UnicodeEncoding();
-                byte[] key = UE.GetBytes(password);
+                        FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
 
-                FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
+                        RijndaelManaged RMCrypto = new RijndaelManaged();
 
-                RijndaelManaged RMCrypto = new RijndaelManaged();
+                        CryptoStream cs = new CryptoStream(fsCrypt,
+                            RMCrypto.CreateDecryptor(key, key),
+                            CryptoStreamMode.Read);
 
-                CryptoStream cs = new CryptoStream(fsCrypt,
-                    RMCrypto.CreateDecryptor(key, key),
-                    CryptoStreamMode.Read);
+                        FileStream fsOut = new FileStream(outputFile, FileMode.Create);
 
-                FileStream fsOut = new FileStream(outputFile, FileMode.Create);
+                        int data;
+                        while ((data = cs.ReadByte()) != -1)
+                            fsOut.WriteByte((byte)data);
 
-                int data;
-                while ((data = cs.ReadByte()) != -1)
-                    fsOut.WriteByte((byte)data);
-
-                fsOut.Close();
-                cs.Close();
-                fsCrypt.Close();
+                        fsOut.Close();
+                        cs.Close();
+                        fsCrypt.Close();
+                        usermssgLBL.Foreground = System.Windows.Media.Brushes.Green;
+                        usermssgLBL.Content = "Decryption Successful!";
+                    }
+                    catch
+                    {
+                        usermssgLBL.Foreground = System.Windows.Media.Brushes.Red;
+                        usermssgLBL.Content = "Failed!";
+                    }
+                }
             }
         }//End Decrpyt
-
-
     }//End Partial Class MainWindow
 }//End NameSpace
